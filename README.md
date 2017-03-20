@@ -1,14 +1,14 @@
 # Clojure performance tips
 
-1. Type hints
-2. Primitive hints
-3. Transient
-4. Loop/recur
-5. Const
-6. Multimethods vs. Protocol
-7. Memoize
-8. Concurrency
-9. Calculation order of data types
-10. Map vs. Record
-11. Flatten in various ways
-12. Transducers
+1. [Type hints](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t01_type_hint.clj)
+2. [Primitive hints](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t02_primitive_hint.clj)
+3. [Transient](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t03_transient.clj)
+4. [Loop/recur](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t04_loop_recur.clj)
+5. [Const](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t05_const_var.clj)
+6. [Multimethods vs. Protocol](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t06_multi_protocol.clj)
+7. [Memoize](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t07_memoize.clj)
+8. [Concurrency](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t08_concurrent.clj)
+9. [Calculation order of data types](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t09_data_calc_order.clj)
+10. [Map vs. Record](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t10_map_record.clj)
+11. [Flatten in various ways](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t11_flatten.clj)
+12. [Transducers](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t12_transducers.clj)
