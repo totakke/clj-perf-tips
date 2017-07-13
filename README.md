@@ -12,3 +12,19 @@
 10. [Map vs. Record](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t10_map_record.clj)
 11. [Flatten in various ways](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t11_flatten.clj)
 12. [Transducers](https://github.com/totakke/clj-perf-tips/blob/master/src/clj_perf_tips/t12_transducers.clj)
+
+To run all benchmarks,
+
+```console
+$ lein libra
+```
+
+To run an individual benchmark, use REPL. For example,
+
+```clojure
+(use 'libra.bench)
+
+(require 'clj-perf-tips.t01-type-hint)
+
+(run-benches 'clj-perf-tips.t01-type-hint)
+```
