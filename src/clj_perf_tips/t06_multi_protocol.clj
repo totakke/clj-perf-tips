@@ -1,5 +1,6 @@
 (ns clj-perf-tips.t06-multi-protocol
-  (:require [criterium.core :as c]))
+  (:require [libra.bench :refer :all]
+            [clj-perf-tips.common :refer [bench]]))
 
 (defmulti sum-a class)
 
@@ -20,13 +21,10 @@
   clojure.lang.PersistentList
   (sum-b [coll] (reduce + coll)))
 
-(defn bench []
-  (println "Multimethods")
-  (c/bench
-   (dotimes [_ 100000]
-     (sum-a (vec (range 10)))))
-
-  (println "Protocol")
-  (c/bench
-   (dotimes [_ 100000]
-     (sum-b (vec (range 10))))))
+(defbench t06-multi-protocol-bench
+  (measure (bench (dotimes [_ 100000]
+                    (sum-a (vec (range 10)))))
+           "Multimethods")
+  (measure (bench (dotimes [_ 100000]
+                    (sum-b (vec (range 10)))))
+           "Protocol"))

@@ -1,5 +1,6 @@
 (ns clj-perf-tips.t03-transient
-  (:require [criterium.core :as c]))
+  (:require [libra.bench :refer :all]
+            [clj-perf-tips.common :refer [bench]]))
 
 ;; w/ transient
 (defn fn1 [n]
@@ -15,9 +16,6 @@
       (recur (dec i) (conj v i))
       v)))
 
-(defn bench []
-  (println "fn1:")
-  (c/bench (dorun (fn1 1000000)))
-
-  (println "fn2:")
-  (c/bench (dorun (fn2 1000000))))
+(defbench t03-transient-bench
+  (measure (bench (dorun (fn1 1000000))) "w/ transient")
+  (measure (bench (dorun (fn2 1000000))) "w/o transient"))

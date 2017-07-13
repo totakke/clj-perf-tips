@@ -1,5 +1,6 @@
 (ns clj-perf-tips.t07-memoize
-  (:require [criterium.core :as c]))
+  (:require [libra.bench :refer :all]
+            [clj-perf-tips.common :refer [bench]]))
 
 (defn a [n]
         (reduce + (range (inc n))))
@@ -9,11 +10,6 @@
 (defn b [n]
         (reduce + (range (inc n))))
 
-(defn bench []
-  (println "w/ memoize")
-  (c/bench
-   (dotimes [_ 1000000] (a 10)))
-
-  (println "w/o memoize")
-  (c/bench
-   (dotimes [_ 1000000] (b 10))))
+(defbench t07-memoize-bench
+  (measure (bench (dotimes [_ 1000000] (a 10))) "w/ memoize")
+  (measure (bench (dotimes [_ 1000000] (b 10))) "w/o memoize"))

@@ -1,5 +1,6 @@
 (ns clj-perf-tips.t04-loop-recur
-  (:require [criterium.core :as c]))
+  (:require [libra.bench :refer :all]
+            [clj-perf-tips.common :refer [bench]]))
 
 (defn odd-sum1 []
   (loop [i 1, s 0]
@@ -12,9 +13,6 @@
        (filter odd?)
        (reduce +)))
 
-(defn bench []
-  (println "odd-sum1:")
-  (c/bench (odd-sum1))
-
-  (println "odd-sum2:")
-  (c/bench (odd-sum2)))
+(defbench t04-loop-recur-bench
+  (measure (bench (odd-sum1)) "odd-sum1")
+  (measure (bench (odd-sum2)) "odd-sum2"))

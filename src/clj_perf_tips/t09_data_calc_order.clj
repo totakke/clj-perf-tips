@@ -1,24 +1,15 @@
 (ns clj-perf-tips.t09-data-calc-order
-  (:require [criterium.core :as c]))
+  (:require [libra.bench :refer :all]
+            [clj-perf-tips.common :refer [bench]]))
 
 (def alist (list* (range 1000)))
 
 (def avec (vec (range 1000)))
 
-(defn bench1 []
-  (println "nth to list")
-  (c/bench
-   (dotimes [_ 100000] (nth alist 999)))
+(defbench t09-data-calc-order-bench1
+  (measure (bench (dotimes [_ 100000] (nth alist 999))) "nth to list")
+  (measure (bench (dotimes [_ 100000] (nth avec 999))) "nth to vector"))
 
-  (println "nth to vector")
-  (c/bench
-   (dotimes [_ 100000] (nth avec 999))))
-
-(defn bench2 []
-  (println "last to vector")
-  (c/bench
-   (dotimes [_ 100000] (last avec)))
-
-  (println "peek to vector")
-  (c/bench
-   (dotimes [_ 100000] (peek avec))))
+(defbench t09-data-calc-order-bench2
+  (measure (bench (dotimes [_ 100000] (last avec))) "last to vector")
+  (measure (bench (dotimes [_ 100000] (peek avec))) "peek to vector"))
