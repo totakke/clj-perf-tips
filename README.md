@@ -19,12 +19,8 @@ To run all benchmarks,
 $ lein libra
 ```
 
-To run an individual benchmark, use REPL. For example,
+To run an individual benchmark,
 
-```clojure
-(use 'libra.bench)
-
-(require 'clj-perf-tips.t01-type-hint)
-
-(run-benches 'clj-perf-tips.t01-type-hint)
+```console
+$ lein libra :only clj-perf-tips.t01-type-hint
 ```
