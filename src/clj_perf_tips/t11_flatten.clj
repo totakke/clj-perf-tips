@@ -1,6 +1,6 @@
 (ns clj-perf-tips.t11-flatten
   (:require [libra.bench :refer :all]
-            [clj-perf-tips.common :refer [bench]]))
+            [libra.criterium :refer [bench]]))
 
 (defn flatten1 [xs]
   (flatten xs))
@@ -13,12 +13,12 @@
 
 (defbench t11-flatten-bench
   (let [coll [[1 2 3] [4 5 6]]]
-    (measure (bench (dotimes [_ 10000]
-                      (flatten1 coll)))
-             "flatten1")
-    (measure (bench (dotimes [_ 10000]
-                      (flatten2 coll)))
-             "flatten2")
-    (measure (bench (dotimes [_ 10000]
-                      (flatten3 coll)))
-             "flatten3")))
+    (is (bench (dotimes [_ 10000]
+                 (flatten1 coll)))
+        "flatten1")
+    (is (bench (dotimes [_ 10000]
+                 (flatten2 coll)))
+        "flatten2")
+    (is (bench (dotimes [_ 10000]
+                 (flatten3 coll)))
+        "flatten3")))

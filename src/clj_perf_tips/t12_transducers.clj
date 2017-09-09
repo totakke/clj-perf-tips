@@ -1,6 +1,6 @@
 (ns clj-perf-tips.t12-transducers
   (:require [libra.bench :refer :all]
-            [clj-perf-tips.common :refer [bench]]))
+            [libra.criterium :refer [bench]]))
 
 (defn a [n]
   (->> (range n)
@@ -18,5 +18,5 @@
     (transduce xf + (range n))))
 
 (defbench t12-transducers-bench
-  (measure (bench (dotimes [_ 1000] (a 1000))) "w/o transducers")
-  (measure (bench (dotimes [_ 1000] (b 1000))) "w/ transcuders"))
+  (is (bench (dotimes [_ 1000] (a 1000))) "w/o transducers")
+  (is (bench (dotimes [_ 1000] (b 1000))) "w/ transcuders"))
