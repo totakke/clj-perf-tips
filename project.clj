@@ -4,5 +4,5 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [criterium "0.4.4"]
                  [net.totakke/libra "0.1.1"]]
-  :plugins [[net.totakke/lein-libra "0.1.1"]]
+  :plugins [[net.totakke/lein-libra "0.1.2"]]
   :libra {:bench-paths ["src"]})
